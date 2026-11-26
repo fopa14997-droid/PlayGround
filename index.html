@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101a2d" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <title>Time Capsule — The Old Web, Preserved</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="Time Capsule home">
+        <span class="brand-mark"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3.5a12.5 12.5 0 1 0 12.5 12.5A12.51 12.51 0 0 0 16 3.5Zm0 22A9.5 9.5 0 1 1 25.5 16 9.51 9.51 0 0 1 16 25.5Z"/><path d="M17.5 8.5h-3v8.25l6.03 3.62 1.54-2.57-4.57-2.74Z"/><path d="m4.7 5.2 4.7-.7-.7 4.7-4-4Z"/></svg></span>
+        <span class="brand-type">time<span>capsule</span></span>
+      </a>
+      <div class="browser-controls">
+        <button class="icon-button" id="backBtn" aria-label="Go back" title="Go back"><svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg></button>
+        <button class="icon-button" id="forwardBtn" aria-label="Go forward" title="Go forward"><svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></button>
+        <button class="icon-button" id="refreshBtn" aria-label="Refresh snapshot" title="Refresh snapshot"><svg viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5.6 9a7 7 0 0 1 11.6-2L20 12M4 12l2.8 5a7 7 0 0 0 11.6-2"/></svg></button>
+        <form class="address-bar" id="addressForm">
+          <svg class="lock-icon" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+          <span class="protocol">capsule://</span>
+          <input id="addressInput" aria-label="Archive address" spellcheck="false" value="arcade-classics.net" />
+          <button type="submit" class="address-go" aria-label="Open archive">↵</button>
+        </form>
+      </div>
+      <div class="top-actions">
+        <span class="safe-pill"><span></span> SAFE MODE</span>
+        <button class="avatar" title="Your collection">JD</button>
+      </div>
+    </header>
+
+    <div class="workspace">
+      <aside class="sidebar">
+        <div class="side-label">YOUR ARCHIVE</div>
+        <button class="side-link active" data-view="explore"><span class="side-icon">⌂</span> Explore</button>
+        <button class="side-link" data-view="games"><span class="side-icon">▣</span> Games <span class="side-count">18</span></button>
+        <button class="side-link" data-view="movies"><span class="side-icon">▶</span> Movies <span class="side-count">12</span></button>
+        <button class="side-link" data-view="websites"><span class="side-icon">◎</span> Websites</button>
+        <div class="side-divider"></div>
+        <div class="side-label">YOUR COLLECTION <button class="plus-btn" id="createCollection" aria-label="Create collection">+</button></div>
+        <button class="side-link collection-link" data-collection="saved"><span class="collection-dot coral"></span> Saved for later</button>
+        <button class="side-link collection-link" data-collection="nostalgia"><span class="collection-dot yellow"></span> 2000s nostalgia</button>
+        <div class="sidebar-bottom">
+          <div class="flash-card"><div class="flash-spark">✦</div><div><strong>Flash is back.</strong><p>In a safe, modern player.</p></div><span class="flash-version">v 32.0</span></div>
+          <div class="side-foot"><span class="status-dot"></span> 1,482 snapshots indexed</div>
+          <div class="side-foot muted">Built for the curious <span>✿</span></div>
+        </div>
+      </aside>
+
+      <main class="main-content" id="mainContent">
+        <div class="page-heading">
+          <div><div class="eyebrow"><span class="eyebrow-star">✳</span> INTERNET TIME MACHINE</div><h1>Take a little <em>trip back.</em></h1><p class="heading-copy">The games, sites, and strange little corners of the web you remember.</p></div>
+          <div class="date-picker-wrap">
+            <span class="date-label">TRAVEL TO</span>
+            <div class="date-picker"><button id="datePrev" aria-label="Previous year">‹</button><input id="archiveDate" type="date" aria-label="Choose archive date" value="2004-07-12" min="1996-01-01" max="2012-12-31"><button id="dateNext" aria-label="Next year">›</button></div>
+          </div>
+        </div>
+        <section class="hero-card" aria-label="Featured archive">
+          <div class="hero-copy"><div class="hero-kicker"><span class="live-dot"></span> FEATURED SNAPSHOT <span class="hero-year">JUL 12, 2004</span></div><h2>The internet was<br>your <span>playground.</span></h2><p>Pick a year. Find an old favorite. Stay awhile.</p><button class="hero-cta" id="heroExplore">Explore the 2004 web <span>→</span></button></div>
+          <div class="hero-art" aria-hidden="true"><div class="orbit orbit-a"></div><div class="orbit orbit-b"></div><div class="planet planet-big"></div><div class="planet planet-small"></div><div class="pixel-star star-one">✦</div><div class="pixel-star star-two">✳</div><div class="pixel-star star-three">✧</div><div class="art-window"><div class="window-top"><i></i><i></i><i></i><span>THE WORLD WIDE WEB</span></div><div class="window-body"><div class="window-badge">www</div><div class="window-lines"><i></i><i></i><i></i><i></i></div><div class="window-buttons"><b>PLAY</b><b>EXPLORE</b></div></div></div><div class="art-label">CONNECTING TO 2004...</div></div>
+          <div class="hero-index">01 <span>/</span> 04</div>
+        </section>
+
+        <section class="section-block" id="popularSection">
+          <div class="section-heading"><div><div class="section-eyebrow">A GOOD PLACE TO START</div><h2>Popular time capsules <span class="heading-spark">✳</span></h2></div><button class="text-link" id="seeAll">See all websites <span>→</span></button></div>
+          <div class="capsule-grid" id="capsuleGrid"></div>
+        </section>
+        <section class="bottom-feature-row">
+          <div class="mini-feature"><div class="mini-feature-icon game-icon">✦</div><div><span>PRESS PLAY</span><strong>Flash games, still playable.</strong><p>Old-school fun. No old-school plugins.</p></div><button class="round-arrow" data-view="games">↗</button></div>
+          <div class="mini-feature"><div class="mini-feature-icon movie-icon">▶</div><div><span>ROLL THE REEL</span><strong>Classic web animations.</strong><p>Revisit the clips that went viral.</p></div><button class="round-arrow" data-view="movies">↗</button></div>
+        </section>
+        <footer class="page-footer"><span>AN ARCHIVE OF THE INTERNET, NOT THE INTERNET ITSELF.</span><span>NO REDIRECTS · NO PLUGINS · JUST NOSTALGIA <b>✳</b></span></footer>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+    <div class="modal-backdrop" id="modalBackdrop" aria-hidden="true"><section class="player-modal" id="playerModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"></section></div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
